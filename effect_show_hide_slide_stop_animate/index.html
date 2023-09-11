@@ -16,11 +16,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <!-- Optional JavaScript -->
@@ -43,7 +39,7 @@
         Show
       </button>
       <button
-        class="btn btn-primary mt-5"
+        class="btn btn-danger mt-5"
         id="hide"
         value="hide"
         name="hide"
@@ -52,7 +48,7 @@
         Hide
       </button>
       <button
-        class="btn btn-primary mt-5"
+        class="btn btn-warning mt-5"
         id="fade"
         value="fade"
         name="fade"
@@ -61,7 +57,25 @@
         Fade
       </button>
       <button
-        class="btn btn-primary mt-5"
+        class="btn btn-secondary mt-5"
+        id="fade"
+        value="fade"
+        name="fade"
+        onclick="fadeOut()"
+      >
+        FadeOut
+      </button>
+      <button
+        class="btn btn-secondary mt-5"
+        id="fade"
+        value="fade"
+        name="fade"
+        onclick="fadeToggle()"
+      >
+        FadeToggle
+      </button>
+      <button
+        class="btn btn-success mt-5"
         id="slide"
         value="slide"
         name="slide"
@@ -70,7 +84,7 @@
         Slide
       </button>
       <button
-        class="btn btn-primary mt-5"
+        class="btn btn-info mt-5"
         id="animate"
         value="animate"
         name="animate"
@@ -79,7 +93,7 @@
         Animate
       </button>
       <button
-        class="btn btn-primary mt-5"
+        class="btn btn-dark mt-5"
         id="stop"
         value="stop"
         name="stop"
@@ -104,13 +118,36 @@
       // Gizle
       function hide() {
         $(document).ready(function () {
-          $("#p1").hide();
+          $("#p1").hide(2000);
         });
       }
       //Goster
       function show() {
         $(document).ready(function () {
-          $("#p1").show();
+          $("#p1").show(2000, function () {
+            alert("gosterildi");
+          });
+        });
+      }
+      function fade() {
+        $(document).ready(function () {
+          $("#p1").fadeIn(2000);
+        });
+      }
+      function fadeOut() {
+        $(document).ready(function () {
+          $("#p1").fadeOut(2000);
+        });
+      }
+      function fadeToggle() {
+        $(document).ready(function () {
+          $("#p1").fadeToggle();
+        });
+      }
+
+      function slide() {
+        $(document).ready(function () {
+          $("#p1").slideToggle();
         });
       }
     </script>
