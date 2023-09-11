@@ -16,11 +16,22 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div
+      id="div"
+      class="mt-5 ml-5"
+      style="
+        width: 200px;
+        height: 210px;
+        background-color: aquamarine;
+        position: relative;
+      "
+    ></div>
 
     <div class="m-5">
       <p id="p1">
@@ -29,6 +40,7 @@
         ea ex, quod tempora corporis! Dolorum dolores voluptatum quisquam animi
         recusandae?
       </p>
+
       <button
         class="btn btn-primary mt-5"
         id="show"
@@ -47,6 +59,7 @@
       >
         Hide
       </button>
+      <br />
       <button
         class="btn btn-warning mt-5"
         id="fade"
@@ -56,6 +69,7 @@
       >
         Fade
       </button>
+
       <button
         class="btn btn-secondary mt-5"
         id="fade"
@@ -66,7 +80,7 @@
         FadeOut
       </button>
       <button
-        class="btn btn-secondary mt-5"
+        class="btn btn-info mt-5"
         id="fade"
         value="fade"
         name="fade"
@@ -74,21 +88,40 @@
       >
         FadeToggle
       </button>
+      <br />
       <button
         class="btn btn-success mt-5"
         id="slide"
         value="slide"
         name="slide"
-        onclick="slide()"
+        onclick="slideUp()"
       >
-        Slide
+        SlideUp
       </button>
+      <button
+        class="btn btn-success mt-5"
+        id="slide"
+        value="slide"
+        name="slide"
+        onclick="slideDown()"
+      >
+        SlideDown
+      </button>
+      <button
+        class="btn btn-success mt-5"
+        id="slide"
+        value="slide"
+        name="slide"
+        onclick="slideToggle()"
+      >
+        SlideToggle
+      </button>
+      <br />
       <button
         class="btn btn-info mt-5"
         id="animate"
         value="animate"
         name="animate"
-        onclick="animate()"
       >
         Animate
       </button>
@@ -129,6 +162,8 @@
           });
         });
       }
+
+      //FADE
       function fade() {
         $(document).ready(function () {
           $("#p1").fadeIn(2000);
@@ -145,11 +180,47 @@
         });
       }
 
-      function slide() {
+      //SLIDE
+      function slideUp() {
+        $(document).ready(function () {
+          $("#p1").slideUp();
+        });
+      }
+      function slideDown() {
+        $(document).ready(function () {
+          $("#p1").slideDown();
+        });
+      }
+      function slideToggle() {
         $(document).ready(function () {
           $("#p1").slideToggle();
         });
       }
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#animate").click(function () {
+          $("#div").animate(
+            {
+              width: 500,
+              height: 500,
+              left: "+=500",
+            },
+            10000,
+            function () {
+              alert("animate bitti");
+            }
+          );
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#stop").click(function () {
+          $("div").stop();
+        });
+      });
     </script>
   </body>
 </html>
