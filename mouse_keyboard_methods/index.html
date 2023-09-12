@@ -30,6 +30,12 @@
         ea ex, quod tempora corporis! Dolorum dolores voluptatum quisquam animi
         recusandae?
       </p>
+      <p id="p2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia cumque
+        voluptatem nobis possimus ipsa itaque dolorum hic aspernatur inventore
+        ea ex, quod tempora corporis! Dolorum dolores voluptatum quisquam animi
+        recusandae?
+      </p>
     </div>
 
     <script
@@ -51,6 +57,26 @@
 
         $("#p1").dblclick(function () {
           $("#p1").css("color", "blue").css("font-size", "24px");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#p1").mousedown(function () {
+          $("#p1").after("Mouse down");
+        });
+        $("#p1").mouseup(function () {
+          $("#p1").after(" Mouse Up ");
+        });
+
+        $("#p1").mouseenter(function () {
+          $("#p1").css("background-color", "gray");
+        });
+        $("#p1").mouseleave(function () {
+          $("#p1").css("background-color", "white");
+        });
+        $("#p2").mouseover(function () {
+          $("#p2").css("background-color", "red");
         });
       });
     </script>
