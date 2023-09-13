@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      div {
+        width: 20%;
+        height: 200px;
+        background-color: slateblue;
+        border: 1 px solid gray;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <div>
+      <p id="multi-event"></p>
+    </div>
+    <span id="span1"></span>
+
+    <div id="div1">
+      <p>result :</p>
+      <span id="result-span"></span>
+    </div>
+
+    <form action="">
+      <div class="form-group mt-5 pt-2 pl-2 pr-2">
+        <span for="adi">Adınız</span>
+        <input
+          type="text"
+          class="form-control"
+          name="adi"
+          id="adi"
+          placeholder="Adınızı giriniz."
+        />
+        <span for="soyadi">Soyadınız</span>
+        <input
+          type="text"
+          class="form-control"
+          name="soyadi"
+          id="soyadi"
+          placeholder="Soyadınızı giriniz."
+        />
+      </div>
+    </form>
+    <div id="div2">
+      <p>result</p>
+      <span id="result-span"></span>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $(document).mousemove(function (event) {
+          $("#span1").text(event.pageX + " , " + event.pageY);
+        });
+      });
+    </script>
+
+    <script>
+      var counter = 0;
+
+      $(function () {
+        $(document).keydown(function () {
+          counter++;
+          $("#div1 span").text(counter);
+          $("#div2 span").text(counter);
+        });
+      });
+    </script>
+  </body>
+</html>
