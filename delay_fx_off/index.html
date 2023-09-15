@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .div-class {
+        width: 25%;
+        height: 25%;
+        position: absolute;
+        background-color: blueviolet;
+        float: left;
+      }
+      button {
+        position: relative;
+        left: 10px;
+        top: 300px;
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <div class="div-class ml-5 mt-5" id="deneme"></div>
+    <div
+      class="div-class ml-1 mt-1"
+      style="background-color: burlywood"
+      id="deneme-2"
+    ></div>
+    <button id="toggle_fx" class="btn btn-warning">Toogle Fx</button>
+    <button id="normal" class="btn btn-danger">Tıkla</button>
+    <button id="stop" class="btn btn-primary">Stop</button>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var fxoff = function () {
+        $.fx.off = !$.fx.off;
+      };
+
+      $(function () {
+        $("#toggle_fx").click(fxoff);
+
+        $("#normal").click(function () {
+          $("#deneme").slideUp(300).delay(1000).slideDown(300);
+          $("#deneme-2").slideUp(200).delay(1000).slideDown(200);
+        });
+        $("#stop").click(function () {
+          $("#deneme").stop();
+          $("#deneme-2").stop();
+        });
+      });
+    </script>
+  </body>
+</html>
