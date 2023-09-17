@@ -29,6 +29,17 @@
       <li>item 3</li>
       <li>item 4</li>
     </ul>
+    <p>After örneği tıkla</p>
+
+    <img id="img1" src="/img/maidens-tower-istanbul.jpg" alt="resim" />
+
+    <script>
+      $(function () {
+        $("#img1").ready(function () {
+          alert("Resim yüklendi");
+        });
+      });
+    </script>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -46,6 +57,14 @@
         $("ul li").click(function () {
           var index = $(this).index();
           alert(index);
+        });
+      });
+    </script>
+
+    <script>
+      $(function () {
+        $("p").click(function () {
+          $(this).after("<b>Jquery Çalışmalarımız Devam Ediyor...</b>");
         });
       });
     </script>
