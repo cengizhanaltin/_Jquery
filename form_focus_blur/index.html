@@ -44,7 +44,11 @@
     <script>
       $(function () {
         $("input").focus(function () {
-          $("p").css("color", "red").fadeOut(1000).delay(1000).fadeIn(1000);
+          $("p").css("color", "red").fadeOut(1000);
+        });
+
+        $("input").blur(function () {
+          $("p").css("color", "blue").fadeIn(1000);
         });
       });
     </script>
