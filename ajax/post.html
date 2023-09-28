@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ajax</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style></style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body class="container">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <form action="" class="mt-5">
+      <div class="form-group">
+        <label for="">ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="post_id"
+          placeholder="ID"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="">ADI</label>
+        <input
+          type="text"
+          class="form-control"
+          id="post_name"
+          placeholder="ADINIZ"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="">SOYADI</label>
+        <input
+          type="text"
+          class="form-control"
+          id="post_surname"
+          placeholder="SOYADINIZ"
+          required
+        />
+      </div>
+    </form>
+
+    <button class="btn btn-danger" id="ajaxPost">Kaydet</button>
+
+    <table class="table table-hover table-striped mt-5">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ADI</th>
+          <th>SOYADI</th>
+        </tr>
+      </thead>
+      <tbody id="tbody_id"></tbody>
+    </table>
+    <button class="btn btn-primary" id="ajaxGet">Verileri Getir</button>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $("#ajaxPost").click(function () {
+          var baseUrl = "http://localhost:3000";
+          var tbody = $("#tbody_id");
+          $.ajax({
+            method: "POST",
+            url: baseUrl + "/posts",
+            data: {
+              id: $("#post_id").val(),
+              name: $("#post_name").val(),
+              surname: $("#post_surname").val(),
+            },
+          })
+            .done(function (veriler) {
+              for (var i = 0; i < 20; i++) {
+                var trHtml = "";
+                trHtml +=
+                  "<tr><td>" +
+                  veriler[i].id +
+                  "</td>" +
+                  "<td>" +
+                  veriler[i].name +
+                  "</td>" +
+                  "<td>" +
+                  veriler[i].surname +
+                  "</td></tr>";
+                tbody.append(trHtml);
+                //console.log(trHtml);
+              }
+            })
+            .fail(function () {
+              alert("Listeleme Yapılırken Hata Meydana Geldi");
+            });
+        });
+      });
+    </script>
+
+    <script>
+      $(function () {
+        $("#ajaxGet").click(function () {
+          var baseUrl = "http://localhost:3000";
+          var tbody = $("#tbody_id");
+          $.ajax({
+            method: "GET",
+            url: baseUrl + "/posts",
+          })
+            .done(function (veriler) {
+              for (var i = 0; i < 20; i++) {
+                var trHtml = "";
+                trHtml +=
+                  "<tr><td>" +
+                  veriler[i].id +
+                  "</td>" +
+                  "<td>" +
+                  veriler[i].name +
+                  "</td>" +
+                  "<td>" +
+                  veriler[i].surname +
+                  "</td></tr>";
+                tbody.append(trHtml);
+                //console.log(trHtml);
+              }
+            })
+            .fail(function () {
+              alert("Listeleme Yapılırken Hata Meydana Geldi");
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
